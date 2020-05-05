@@ -3,3 +3,7 @@
 	height: 42vh;
 	margin: 40px;
 }
+
+#cardsButton {
+	border: 3px solid #f6c23e;
+}

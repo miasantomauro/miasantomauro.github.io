@@ -34,12 +34,50 @@ function getBibContent() {
 	return `
 	<h3>Bibliography</h3>
 	<p>
-		Please note that all chapter numbers on this site are in reference to Njal's Saga,
+		Please note that all chapter numbers, which appear when hovering over quotes and other cited material, are in reference to Njal's Saga,
 		which is cited properly below:
 	</p>
 
 	<p>
 		<i>Njal’s Saga</i>, Translated with Introduction and Notes by Robert Cook (London: Penguin, 2001).
 	</p>
+	`;
+}
+
+function getProcessContent() {
+	return `
+	<h3>Process</h3>
+	<p>This project had three main development phases:</p>
+	<ol>
+		<li>Research</li>
+		<li>Analysis</li>
+		<li>Site Construction</li>
+	</ol>
+
+	<p><b>Research</b></p>
+	<p>
+		I read and annotated Njal's saga. I tracked characters and themes on
+		<a href="https://docs.google.com/document/d/1E3dz_geGlzB5X0WOL4LX65U8PC8axMltsZIAgx3ODiU/edit?usp=sharing">this Google Document</a>.
+		Note that you must be using a Brown University email to access this link.
+	</p>
+
+	<p><b>Analysis</b></p>
+	<p>
+		I determined which themes I would focus on, then used the quotations
+		I compiled to summarize their significance in the text.
+	</p>
+
+	<p><b>Site Construction</b></p>
+	<p>
+		I used HTML, CSS, and Javascript to construct this site!
+	</p>
+
+	`;
+}
+
+function getMotivationContent() {
+	return `<h3>Motivation</h3>
+	<p><b>Why Njal's Saga?</b></p>
+	<p><b>Why Magic: The Gathering?</b></p>
 	`;
 }
