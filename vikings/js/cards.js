@@ -7,12 +7,12 @@ $(document).ready(function(){
 	appendCard("Test Card");
 	appendCard("Test Card");
 
-	$(".myCard").on("mouseenter", function(e){
+	$(".playingCard").on("mouseenter", function(e){
 		$(this).find(".cardFront").css("visibility", "hidden");
 		$(this).find(".cardBack").css("visibility", "visible");
 	});
 
-	$(".myCard").on("mouseleave", function(e){
+	$(".playingCard").on("mouseleave", function(e){
 		$(this).find(".cardFront").css("visibility", "visible");
 		$(this).find(".cardBack").css("visibility", "hidden");
 	});
@@ -22,7 +22,7 @@ $(document).ready(function(){
 function appendCard(title) {
 	console.log("appending " + title);
 	const newElt = `
-	<div class="card shadow border-bottom-info m-1 myCard">
+	<div class="card shadow border-bottom-info m-1 playingCard">
 		<div class="card-header py-3">
 			<h3 class="font-weight-bold text-info">
 				${title}
