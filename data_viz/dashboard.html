@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 🕹️ -->
+        <meta charset="utf-8">
+        <title>Video Game Sales</title>
+		<link rel="icon" href="creeper.png">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="main.css"/>
+        <!--Feel free to add more CSS files as needed-->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+<body>
+    <div class="header">
+        <h1>A Summary of Video Game Sales</h1>
+		<p>
+			All data is from
+			<a href="https://www.kaggle.com/gregorut/videogamesales" target="_blank">this</a>
+			dataset on Kaggle.
+		</p>
+    </div>
+    <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
+
+	<div class="container">
+
+		<h3 class="sectionTitle">Top Ten Games Released Each Year</h3>
+
+    <div class="row">
+
+		<!-- dummy column -->
+		<div class="col-2"></div>
+
+		<!-- main column -->
+        <div class="col-8">
+
+			<!-- chart header -->
+			<div class="row">
+				<div class="col d-flex justify-content-center align-items-center">
+					<span id="topGamesDisplayMessage">Displaying the top ten games of </span>
+					<form class="myform" id="topGamesForm">
+	    			<select class="form-control mydropdown"  id="yearInputs">
+	    			</select>
+				</form>
+				</div>
+			</div>
+
+			<!-- chart -->
+			<div class="row" id="graph1">
+				<div class="col" id="col1">
+				</div>
+				<div class="col" id="col2">
+				</div>
+			</div>
+        </div>
+
+		<!-- dummy column -->
+		<div class="col-2"></div>
+
+    </div>
+
+	<h3 class="sectionTitle">Sales for each Genre</h3>
+	<p>This graph shows the total sales (broken down by region) for each genre from 1980 - 2017.</p>
+
+	<div class="row">
+		<div class="col d-flex justify-content-center align-items-center" id="key">
+		</div>
+	</div>
+
+	<div class="row">
+
+		<!-- dummy column -->
+		<div class="col-2"></div>
+
+		<!-- main column -->
+        <div class="col-8 d-flex justify-content-center" id="graph2">
+        </div>
+
+		<!-- dummy column -->
+		<div class="col-2"></div>
+
+    </div>
+
+	<h3 class="sectionTitle">Top Publishers for Genres</h3>
+
+	<p>
+		This chart shows the percentage of total sales (from 1980 - 2017)
+		accounted for by different publishers.
+	</p>
+
+	<div class="row">
+		<!-- dummy column -->
+		<div class="col-2"></div>
+
+		<!-- main column -->
+        <div class="col-8">
+
+			<!-- chart header -->
+			<div class="row">
+				<!-- https://v4-alpha.getbootstrap.com/components/forms/#validation -->
+				<div class="col d-flex justify-content-center align-items-center">
+					<span>Displaying the best</span>
+					<form class="form-inline myform" id="genreform">
+						<select class="form-control mydropdown" id="nInput"></select>
+						<span>publishers for </span>
+	    				<select class="form-control mydropdown" id="genreInput"></select>
+					</form>
+					<span class="topPublishersTitle"> games </span>
+				</div>
+			</div>
+
+			<!-- chart -->
+			<div class="row">
+				<div class="col d-flex justify-content-center" id="graph3">
+				</div>
+			</div>
+        </div>
+
+		<!-- dummy column -->
+		<div class="col-2"></div>
+    </div>
+
+	<div class="row">
+		<div class="col" id="written_questions">
+		<h1>Written Questions</h1>
+		<h3>Describe how your dashboard answers the questions presented.</h3>
+		<ol>
+			<li>
+				My first visualization address the first question (top 10 games of
+				all time or for a specific year).
+				In order to view the top ten video games for a certain year,
+				the user just has to select a year from the drop down. The values
+				in the drop down represent the range of years the database accounts for.
+				A user can also select the "All Time" option to view the top games,
+				regardless of the year they were released.
+				Please note that I interpreted the prompt as the top ten games
+				<i>released</i> in a given year. I compared the overal sales rank of
+				each game to get the top ten games.
+			</li>
+			<li>
+				My second visualization addresses the second question,
+				and represents the top genres, and their
+				relative popularity in different regions (Japan, Europe, US, and Elsewhere).
+				I chose to use total sales to represent popularity because it encapsulates
+				information about number of titles sold, as well as number of copies of those titles sold.
+			</li>
+			<li>
+				My third visualization addresses the third question.
+				In order to determine the best publisher for a genre, one could
+				select whichever genre they're interested in and the pie chart
+				will display what percentage of global sales are accounted for by
+				each of the top publishers in that genre. The user has the option
+				to view the top 1, 2, 3, or 4 top publishers for each genre.
+			</li>
+		</ol>
+		<h3>List 3 reasons why D3 was helpful and improved your visualization.</h3>
+		<ul>
+			<li>
+				D3 provided useful functions for creating the scales.
+				These functions allowed me to easily make x and y axes, as
+				well as color and category mappings.
+			</li>
+			<li>
+				D3's syntax allows for chaining multiple operations, which makes
+				creating and appending elements easy.
+			</li>
+			<li>
+				D3 provides a lot the same useful functions of jquery that I'm
+				personally used to, so translating from one to the other was
+				relatively simple.
+			</li>
+		</ul>
+
+		<h3>List 3 reasons why D3 would not be the best tool for creating a visualization.</h3>
+		<ul>
+			<li>
+				One thing I found troubling was that most of the tutorials
+				I found used trivial data sets. It was tough to figure out
+				how to adapt the tutorials to the dataset I had to use.
+			</li>
+			<li>
+				Another thing about d3 I found challenging was appending
+				multiple "sibling" elements. As far as I can tell,
+				there isn't a concise way to do this.
+			</li>
+			<li>
+				I could be mistaken, but based on the information I found online,
+				d3 does not lend itself well to responsive size units.
+			</li>
+		</ul>
+
+		<h1>
+			Responses to
+			<a href="https://venngage.com/blog/misleading-graphs/?fbclid=IwAR3QeCDEq59E8VSFL3nSxyUDr5qtDB4i5pk7pUsi09TBEMgYSr9qTJIHwiA" target="_blank">this</a>
+			article
+		</h1>
+
+		<h3>
+			Give two different ways in which graphs may confuse or mislead viewers.<br/>
+			What are ways to avoid this or fix these issues?
+		</h3>
+
+		<ol>
+			<li>
+				One way graphs can mislead viewers is through improper scaling
+				of the y axis. This can be fixed by using the data to
+				generate the scale.
+			</li>
+			<li>
+				Graphs can be misleading if they are simply the wrong type of graph
+				to display their data. For example, you shouldn't use a histogram
+				to represent categorical data. A bar graph would probably be
+				more appropriate.
+			</li>
+		</ol>
+
+		<h3>
+			Find a real world example of a strong data graphic and explain what it does well.<br/>
+			Next, find a not-as-good data graphic and explain what it does poorly and how to improve it.
+		</h3>
+
+			<p>
+				<a href="http://hereistoday.com/" target="_blank">Here</a>
+				is a great data visualization.
+			</p>
+
+			<p>
+				It uses color and proportions in a clear and intuitive way
+				in order to illustrate the relative length of a day, week, month etc.
+				It also uses the actual current date in order to make even more of an impact.
+			</p>
+
+			<p>
+				<a href="https://visual.ly/community/Infographics/other/what-your-brand-color-says-about-your-business" target="_blank">Here</a>
+				is a pretty misleading data visualization.
+			</p>
+
+			<p>
+				One of the most confusing sections is the "Favorite Colors regardless of Age or Gender" section,
+				which ironically uses gendered images to get their point across.
+				Additionally, it makes a point about warm colors, then uses red, orange, and brown
+				as the examples. I was expecting red, orange, and yellow to be the examples.
+			</p>
+		</h3>
+	</div>
+	</div>
+
+	</div>
+    <!--Feel free to add more JavaScript files as needed-->
+	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/top_games.js"></script>
+	<script type="text/javascript" src="js/top_genres.js"></script>
+	<script type="text/javascript" src="js/top_publishers.js"></script>
+</body>
+</html>
